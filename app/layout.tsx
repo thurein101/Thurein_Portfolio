@@ -8,6 +8,9 @@ import { icons } from "lucide-react";
 export const metadata = {
   title: "Thurein_Portfolio",
   description: "Portfolio website of Thurein, a full stack developer building modern web applications.",
+  verification: {
+    google: "pkMdpIv_NlGAmp2B-iQqPww76LXlzqwF0xuKO_70lJ0",
+  },
  
   
 };

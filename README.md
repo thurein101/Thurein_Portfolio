@@ -39,7 +39,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 
 Welcome to my personal portfolio website repo! This is a modern, high-performance, and minimal web application designed to showcase my creative web development projects, technical skills, and experience.
 
- **Live Demo:** [https://your-project.vercel.app](https://your-project.vercel.app) 
+ **Live Demo:** [https://thurein-portfolio-nplg.vercel.app/]
 
 ---
 
