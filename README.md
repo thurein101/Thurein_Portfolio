@@ -64,5 +64,3 @@ Welcome to my personal portfolio website repo! This is a modern, high-performanc
 - **Email Service:** Resend API
 
 ---
-
-
