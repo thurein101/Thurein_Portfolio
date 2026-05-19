@@ -24,3 +24,38 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* ==========================================
+   🎯 PORTFOLIO MATCHING PREMIUM SCROLLBAR
+   ========================================== */
+
+/* 1. Scrollbar ရဲ့ Width ကို မင်းရဲ့ UI လိုင်းတွေအတိုင်း သေးသေးသွယ်သွယ်လေး ထားမယ် */
+::-webkit-scrollbar {
+  width: 6px;  /* 6px ပဲ ထားတော့ ပိုပြီး Elegant ဖြစ်ပြီး Layout ကို မရှုပ်စေဘူး bro */
+  height: 6px; 
+}
+
+/* 2. Track Background (မင်းရဲ့ ဝဘ်ဆိုက် Background `#0F0F1A` နဲ့ တစ်သားတည်းဖြစ်အောင် ညှိတာ) */
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+
+/* 3. Scrollbar Thumb (မင်းရဲ့ Navbar ကတ်တွေ၊ Borders တွေရဲ့ Zinc အရောင်နဲ့ ကွက်တိ) */
+::-webkit-scrollbar-thumb {
+  background: rgba(63, 63, 70, 0.4); /* zinc-700 ကိုမှ Transparent ခပ်ပါးပါးလေး လုပ်ထားတာ */
+  border-radius: 100px;
+  transition: all 0.4s ease;
+}
+
+/* 4. Mouse ထောက်လိုက်ရင် မင်းရဲ့ "Explore Projects" Button လိုမျိုး အဖြူရောင်ဘက်ကို လင်းခနဲ ဖြစ်သွားစေမယ် */
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25); /* 🎯 FIXED: Hover လုပ်ရင် White Accent ပုံစံ လင်းလာမှာပါ */
+}
+
+/* 5. Firefox Support */
+@supports (scrollbar-color: auto) {
+  html {
+    scrollbar-color: rgba(63, 63, 70, 0.4) transparent;
+    scrollbar-width: thin;
+  }
+}
