@@ -19,9 +19,9 @@ function FooterMain() {
     <div
       className={`relative flex flex-col transition-colors duration-500 w-full overflow-x-hidden ${
         isDark
-          ? "bg-gradient-to-r from-[#1f1f25] via-[#0b0c10] to-[#161d40] "
-          : "bg-gradient-to-r from-[#ffffff] via-[#f5f7fa] to-[#e4e8f0] "
-      }`}
+      ? "bg-[radial-gradient(circle_at_right,_rgba(59,130,246,0.08),transparent_26%),linear-gradient(135deg,_#0b0f19_0%,_#11131c_35%,_#171923_70%,_#1d2230_100%)] text-zinc-300"
+      : "bg-[radial-gradient(circle_at_right,_rgba(96,165,250,0.08),transparent_26%),linear-gradient(135deg,_#ffffff_0%,_#f8fafc_35%,_#eef2f7_70%,_#e8edf5_100%)] text-slate-950"
+  }`}
     >
       <main className="w-full flex-1 flex flex-col">
         <Footer/>

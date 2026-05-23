@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { FiArrowUp, FiGlobe } from "react-icons/fi";
-import { useLanguage } from "../language"; // 🎯 FIXED: Language Context Hook ကို Import ဆွဲလိုက်ပါပြီ
+import { useLanguage } from "../language"; 
 
 export default function Footer() {
-  // 🎯 FIXED: Props တွေ လုံးဝ လက်ခံစရာမလိုတော့ပါဘူး
+
   const currentYear = new Date().getFullYear();
 
-  // 🎯 FIXED: Global Context ထဲကနေ လှမ်းသုံးလိုက်တာ ဖြစ်လို့ အဆင့်ဆင့် ပို့နေစရာမလိုတော့ပါဘူး
+
   const { lang, setLang, t } = useLanguage();
 
   // Smooth Scroll to Top Function
@@ -51,13 +51,13 @@ export default function Footer() {
             |
           </span>
           <span className={isDark ? "text-zinc-500" : "text-zinc-400"}>
-            {/* 🎯 FIXED: All Rights Reserved ကိုပါ မြန်မာလို လိုက်ပြောင်းပေးနိုင်အောင် t() သုံးထားပါတယ် */}
+          
             © {currentYear}{" "}
             {t("ALL RIGHTS RESERVED", "မူပိုင်ခွင့်အားလုံး ရရှိပြီး ဖြစ်ပါသည်")}
           </span>
         </div>
 
-        {/* 🌐 Center / Right Blocks: Actions Container */}
+       
         <div className="flex items-center gap-4">
           <motion.button
             onClick={() => setLang(lang === "en" ? "mm" : "en")}
@@ -93,7 +93,7 @@ export default function Footer() {
                 : "bg-[#eee] text-zinc-600 shadow-[3px_3px_6px_#dfd9d9,_-3px_-3px_6px_#ffffff] hover:text-zinc-950"
             }`}
           >
-            {/* 🎯 FIXED: t() helper သုံးပြီး စာသားကို ရှင်းရှင်းလင်းလင်း ခွဲပေးထားပါတယ် */}
+    
             <span>{t("BACK TO TOP", "အပေါ်ပြန်တက်ရန်")}</span>
             <motion.span
               animate={{ y: [0, -2, 0] }}

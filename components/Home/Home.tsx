@@ -8,6 +8,7 @@ import Resume from "../Resume/resume";
 import Skills from "../Skills/skillCom";
 import Contact from "../Contact/contactCom";
 import Footer from "../Footer/Footer";
+import ProjectsCom from "../Projects/ProjectCom";
 
 function HomeCom() {
   const { theme } = useTheme();
@@ -47,6 +48,12 @@ function HomeCom() {
         </div>
 
         <Services />
+          {/* Line*/}
+        <div className="relative w-full h-[2px]">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-400 to-transparent dark:via-zinc-500 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-400 to-transparent dark:via-zinc-500 blur-sm opacity-50" />
+        </div>
+        <ProjectsCom/>
 
            {/* Line*/}
         <div className="relative w-full h-[2px]">
@@ -65,7 +72,9 @@ function HomeCom() {
 
         <Contact isDark={isDark}/>
 
-       <Footer lang={lang} setLang={setLang} />
+        
+
+       
       </main>
     </div>
   );

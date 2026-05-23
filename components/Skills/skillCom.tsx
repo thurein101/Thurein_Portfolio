@@ -13,7 +13,7 @@ import {
   SiMongodb, 
   SiPrisma, 
   SiGit,         
-  SiGithub // 🌟 ဒီမှာ g-h-u-b က စာလုံးအသေးပါ bro
+  SiGithub 
 } from "react-icons/si";
 import { ShieldCheck, Database } from "lucide-react"; 
 
@@ -126,7 +126,7 @@ export default function Skills({ isDark }: SkillProps) {
   <h2 className={`text-xl sm:text-2xl font-bold tracking-wider mb-2 uppercase opacity-90 ${
     isDark ? "text-white" : "text-zinc-900"
   }`}>
-    My Skills
+    My Tech Stack
   </h2>
 </div>
 

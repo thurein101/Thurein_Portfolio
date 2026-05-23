@@ -7,7 +7,7 @@ export default function ContactPage() {
   return (
     <div className=' mt-3.5'>
       <ContactMain/>
-      <FooterMain/>
+      
     </div>
   )
 }

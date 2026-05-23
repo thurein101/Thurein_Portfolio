@@ -6,7 +6,7 @@ export default function ServicePage() {
   return (
     <div>
       <ServiceMain/>
-      <FooterMain/>
+      
     </div>
   )
 }

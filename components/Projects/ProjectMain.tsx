@@ -2,10 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Hero from "../Hero/Hero";
-import Services from "../Service/Services";
+import ProjectsCom from "./ProjectCom";
 
-function ServiceMain() {
+
+
+function ProjectMain() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
@@ -24,10 +25,10 @@ function ServiceMain() {
   }`}
     >
       <main className="w-full flex-1 flex flex-col">
-        <Services />
+      <ProjectsCom/>
       </main>
     </div>
   );
 }
 
-export default ServiceMain;
+export default ProjectMain;

@@ -6,7 +6,7 @@ export default function SkillPage() {
   return (
     <div>
       <SkillMain/>
-      <FooterMain/>
+      
     </div>
   )
 }
