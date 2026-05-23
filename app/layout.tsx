@@ -13,7 +13,8 @@ export const metadata = {
     index: true, 
     follow: true, 
   },
-  verification: {
+verification: {
+   
     google: "pkMdpIv_NlGAmp2B-iQqPww76LXlzqwF0xuKO_70lJ0",
   },
   keywords: [
