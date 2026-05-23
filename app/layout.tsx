@@ -14,8 +14,8 @@ export const metadata = {
     follow: true, 
   },
 verification: {
-   
-    google: "pkMdpIv_NlGAmp2B-iQqPww76LXlzqwF0xuKO_70lJ0",
+    // 🎯 ရလာတဲ့ content ထဲက ကုဒ်အသစ်ကို ဒီနေရာမှာ အစားထိုးလိုက်ပါပြီဗျာ
+    google: "Vxg2SUP4EUIAvIu2WBKR2t-qdV896usdG3cl8D-lExM",
   },
   keywords: [
     "Thurein MyoMin",
