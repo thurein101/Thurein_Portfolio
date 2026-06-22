@@ -8,6 +8,7 @@ import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useLanguage } from "../language";
 import Pro from "@/public/Pro.png"
+import ecom from "@/public/Screenshot 2026-06-22 153008.png"
 
 
 
@@ -33,6 +34,17 @@ export default function ProjectsCom() {
       imgSrc:Pro,
       githubUrl: "https://github.com/thurein101/A8telecom",
       liveUrl: "https://www.amara8.com"
+    },
+      {
+      id: 2,
+      title: "THUSHOP Ecommerce With Admin Dashboard",
+      subtitleEn: "Business & Stock Management",
+      subtitleMm: "ကုန်ပစ္စည်းရောင်းဝယ်ရေးနှင့် စီမံ ခန့်ခွဲမှု",
+      techScope: "NEXT.JS — PRODUCTION",
+      techStacks: ["Neon Pg", "Prisma", "Tailwind","Better Auth"],
+      imgSrc:ecom,
+      githubUrl: "https://github.com/thurein101/Thurein_Portfolio",
+      liveUrl: "https://thushop.vercel.app/"
     },
  
   ];
