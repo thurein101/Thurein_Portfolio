@@ -7,10 +7,10 @@ import { FiGithub } from 'react-icons/fi';
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import { useLanguage } from "../language";
-import Pro from "@/public/Pro.png"
-import ecom from "@/public/Screenshot 2026-06-22 153008.png"
+import Pro from "@/public/Pro.png";
+import ecom from "@/public/Screenshot 2026-06-22 153008.png";
 
-
+import aiShortImg from "@/public/Sass.png"; 
 
 export default function ProjectsCom() {
   const { theme } = useTheme();
@@ -31,24 +31,33 @@ export default function ProjectsCom() {
       subtitleMm: "ကုမ္ပဏီသုံး ဝဘ်ဆော့ဖ်ဝဲစနစ်",
       techScope: "NEXT.JS — PRODUCTION",
       techStacks: ["Neon Pg", "Prisma", "Tailwind"],
-      imgSrc:Pro,
+      imgSrc: Pro,
       githubUrl: "https://github.com/thurein101/A8telecom",
       liveUrl: "https://www.amara8.com"
     },
-      {
+    {
       id: 2,
       title: "THUSHOP Ecommerce With Admin Dashboard",
       subtitleEn: "Business & Stock Management",
       subtitleMm: "ကုန်ပစ္စည်းရောင်းဝယ်ရေးနှင့် စီမံ ခန့်ခွဲမှု",
       techScope: "NEXT.JS — PRODUCTION",
-      techStacks: ["Neon Pg", "Prisma", "Tailwind","Better Auth"],
-      imgSrc:ecom,
+      techStacks: ["Next.js","Neon Pg", "Prisma", "Tailwind", "Better Auth"],
+      imgSrc: ecom,
       githubUrl: "https://github.com/thurein101/Thurein_Portfolio",
       liveUrl: "https://thushop.vercel.app/"
     },
- 
+    {
+      id: 3,
+      title: "AI Short Video Maker (SaaS)",
+      subtitleEn: "AI-Powered Video Generation Platform",
+      subtitleMm: "AI အသုံးပြု ဗီဒီယိုဖန်တီးမှုဆော့ဖ်ဝဲ",
+      techScope: "NEXT.JS — PRODUCTION",
+      techStacks: ["Next.js", "Clerk", "Drizzle", "Neon Pg", "Tailwind"],
+      imgSrc: aiShortImg, 
+      githubUrl: "https://github.com/thurein101/thu-ai-short-vd",
+      liveUrl: "https://thu-ai-short-vd.vercel.app"
+    }
   ];
-
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -60,7 +69,6 @@ export default function ProjectsCom() {
     }
   };
 
-
   const cardVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: { 
@@ -69,7 +77,6 @@ export default function ProjectsCom() {
       transition: { type: "spring", stiffness: 100, damping: 16 } 
     }
   };
-
 
   const contentContainerVariants = {
     hidden: { opacity: 0 },
@@ -92,7 +99,7 @@ export default function ProjectsCom() {
         isDark ? "bg-indigo-500/[0.02]" : "bg-indigo-500/[0.01]"
       }`} />
 
-      {/* Main Container max-w-5xl for perfect 2-items row sizing */}
+      {/* Main Container max-w-5xl */}
       <div className="mx-auto max-w-5xl">
         
         {/* Section Header */}
@@ -120,7 +127,8 @@ export default function ProjectsCom() {
           </motion.h2>
         </div>
 
-        {/* ➔ 1 ROW - 2 ITEMS BOX GRID */}
+        {/* ➔ BOX GRID */}
+        {/* Project ၃ ခုဖြစ်သွားတဲ့အတွက် lg:grid-cols-3 ပြောင်းသုံးချင်ရင် grid-cols-1 md:grid-cols-2 lg:grid-cols-3 လို့ ပြင်နိုင်ပါတယ် */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -132,7 +140,7 @@ export default function ProjectsCom() {
             <motion.div
               key={project.id}
               variants={cardVariants as any}
-              whileHover={{ y: -4 }} // Hover ရင် Box ကလေး အပေါ်နည်းနည်း ကြွတက်လာမယ်
+              whileHover={{ y: -4 }}
               className={`group relative flex flex-col justify-between overflow-hidden rounded-2xl border p-5 sm:p-6 transition-all duration-500 ${
                 isDark 
                   ? "border-zinc-800/60 bg-zinc-900/10 backdrop-blur-sm hover:border-zinc-700/80 hover:bg-zinc-900/20" 
@@ -140,7 +148,7 @@ export default function ProjectsCom() {
               }`}
             >
               
-              {/* Inside Content Area (With Staggered Fade Up) */}
+              {/* Inside Content Area */}
               <motion.div variants={contentContainerVariants} className="flex flex-col flex-grow">
                 
                 {/* Tech Scope Badge */}
@@ -172,7 +180,7 @@ export default function ProjectsCom() {
                   </div>
                 </motion.div>
 
-         
+                {/* Thumbnail Image */}
                 <motion.div 
                   variants={itemFadeUpVariants as any}
                   className={`relative mt-2 w-full overflow-hidden rounded-xl border bg-zinc-950 group/img aspect-[16/10] ${
@@ -186,7 +194,7 @@ export default function ProjectsCom() {
                   />
                 </motion.div>
 
-                {/* Tech Tags Cloud Inside Box */}
+                {/* Tech Tags Cloud */}
                 <motion.div 
                   variants={itemFadeUpVariants as any}
                   className="flex flex-wrap gap-1.5 mt-4 mb-6"
@@ -207,7 +215,7 @@ export default function ProjectsCom() {
 
               </motion.div>
 
-              {/* Action Buttons Area (Fixed to Bottom of Box) */}
+              {/* Action Buttons Area */}
               <div className="flex items-center gap-2.5 pt-2 border-t border-dashed border-zinc-800/20 dark:border-zinc-800/60">
                 <a 
                   href={project.githubUrl}
