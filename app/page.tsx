@@ -1,14 +1,5 @@
-import HomeCom from '@/components/Home/Home'
-import FooterMain from '@/components/Footer/FooterMain'
+import Home from "@/components/home";
 
-
-function Home() {
-  return (
-    <div>
-      <HomeCom/>
-     
-    </div>
-  )
+export default function HomePage() {
+  return <Home />;
 }
-
-export default Home

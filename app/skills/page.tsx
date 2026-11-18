@@ -1,12 +1,5 @@
-import FooterMain from '@/components/Footer/FooterMain'
-import SkillMain from '@/components/Skills/SkillMain'
+import Skills from "@/components/sections/skills";
 
-
-export default function SkillPage() {
-  return (
-    <div>
-      <SkillMain/>
-      
-    </div>
-  )
+export default function SkillsPage() {
+  return <Skills />;
 }

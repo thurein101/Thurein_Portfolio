@@ -1,13 +1,5 @@
-import FooterMain from '@/components/Footer/FooterMain'
-import ContactMain from '@/components/Contact/contactMain'
-
-
+import ContactForm from "@/components/sections/contact-form";
 
 export default function ContactPage() {
-  return (
-    <div className=' mt-3.5'>
-      <ContactMain/>
-      
-    </div>
-  )
+  return <ContactForm />;
 }

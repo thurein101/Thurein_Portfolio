@@ -1,12 +1,5 @@
-import FooterMain from '@/components/Footer/FooterMain'
-import ServiceMain from '@/components/Service/ServiceMain'
-
+import Services from "@/components/sections/services";
 
 export default function ServicePage() {
-  return (
-    <div>
-      <ServiceMain/>
-      
-    </div>
-  )
+  return <Services />;
 }

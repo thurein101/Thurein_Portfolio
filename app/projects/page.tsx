@@ -1,11 +1,5 @@
-import React from 'react'
-import ProjectMain from '@/components/Projects/ProjectMain'
+import Projects from "@/components/sections/projects";
 
-export default function ProjectPage() {
-  return (
-    <div>
-      <ProjectMain/>
-      
-    </div>
-  )
+export default function ProjectsPage() {
+  return <Projects />;
 }
