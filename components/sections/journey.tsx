@@ -16,6 +16,7 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
+import { createPortal } from "react-dom";
 
 import CertiLab from "@/public/Thurein MyoMin MERN stack Certificate.jpg";
 import Next from "@/public/nextjs.jpg";
@@ -284,77 +285,80 @@ export default function Journey() {
       </div>
 
       {/* Certificate Modal */}
-      {selectedCertificate && (
-        <div
-          className="certificate-overlay is-open"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) {
-              closeCertificate();
-            }
-          }}
-        >
+          {/* Responsive Certificate Modal */}
+      {selectedCertificate &&
+        createPortal(
           <div
-            ref={dialogRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="certificate-preview-title"
-            onKeyDown={handleDialogKeyDown}
-            className="certificate-sheet"
+            className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-black/80 p-2 backdrop-blur-md sm:p-4"
+            onMouseDown={(event) => {
+              if (event.target === event.currentTarget) {
+                closeCertificate();
+              }
+            }}
           >
-            {/* Modal Header */}
-            <div className="flex items-start justify-between gap-3 border-b border-line px-4 py-3.5 sm:px-5">
-              <div className="min-w-0">
-                <span className="eyebrow">
-                  {t("Certificate Preview", "လက်မှတ် ကြည့်ရှုခြင်း")}
-                </span>
+            <div
+              ref={dialogRef}
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="certificate-preview-title"
+              onKeyDown={handleDialogKeyDown}
+              className="my-auto flex max-h-[94dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-line bg-background shadow-2xl sm:rounded-2xl"
+            >
+              {/* Modal Header */}
+              <div className="flex shrink-0 items-start justify-between gap-3 border-b border-line px-3 py-3 sm:px-5 sm:py-4">
+                <div className="min-w-0">
+                  <span className="eyebrow">
+                    {t("Certificate Preview", "လက်မှတ် ကြည့်ရှုခြင်း")}
+                  </span>
 
-                <h2
-                  id="certificate-preview-title"
-                  className="card-title mt-1 break-words"
+                  <h2
+                    id="certificate-preview-title"
+                    className="mt-1 break-words text-sm font-semibold text-foreground sm:text-base"
+                  >
+                    {selectedCertificate.label}
+                  </h2>
+                </div>
+
+                <button
+                  ref={closeRef}
+                  type="button"
+                  onClick={closeCertificate}
+                  className="icon-button shrink-0"
+                  aria-label={t(
+                    "Close certificate preview",
+                    "လက်မှတ် ကြည့်ရှုမှုကို ပိတ်ရန်"
+                  )}
                 >
-                  {selectedCertificate.label}
-                </h2>
+                  <X className="h-4 w-4" aria-hidden="true" />
+                </button>
               </div>
 
-              <button
-                ref={closeRef}
-                type="button"
-                onClick={closeCertificate}
-                className="icon-button shrink-0"
-                aria-label={t(
-                  "Close certificate preview",
-                  "လက်မှတ် ကြည့်ရှုမှုကို ပိတ်ရန်"
-                )}
-              >
-                <X className="h-4 w-4" aria-hidden="true" />
-              </button>
-            </div>
+              {/* Image Preview */}
+              <div className="relative h-[58dvh] min-h-0 w-full flex-1 bg-black/5 sm:h-[68dvh] sm:min-h-[400px]">
+                <Image
+                  src={selectedCertificate.image}
+                  alt={selectedCertificate.label}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 1200px"
+                  className="object-contain p-2 sm:p-4"
+                  priority
+                />
+              </div>
 
-            {/* Certificate Image */}
-            <div className="certificate-sheet-body">
-              <Image
-                src={selectedCertificate.image}
-                alt={selectedCertificate.label}
-                fill
-                sizes="(max-width: 640px) 100vw, 900px"
-                className="object-contain"
-                priority
-              />
-            </div>
+              {/* Modal Footer */}
+              <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-t border-line px-3 py-3 sm:px-5">
+                <span className="mono min-w-0 break-words text-[9px] sm:text-[10px]">
+                  {selectedCertificate.label}
+                </span>
 
-            {/* Modal Footer */}
-            <div className="flex flex-wrap items-center justify-between gap-2 border-t border-line px-4 py-3 sm:px-5">
-              <span className="mono break-words">
-                {selectedCertificate.label}
-              </span>
-
-              <span className="mono text-foreground-subtle">
-                {t("CERTIFICATE", "လက်မှတ်")}
-              </span>
+                <span className="mono shrink-0 text-[9px] text-foreground-subtle">
+                  {t("CERTIFICATE", "လက်မှတ်")}
+                </span>
+              </div>
             </div>
-          </div>
-        </div>
-      )}
+          </div>,
+          document.body
+        )}
     </section>
   );
 }
