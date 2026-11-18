@@ -286,79 +286,82 @@ export default function Journey() {
 
       {/* Certificate Modal */}
           {/* Responsive Certificate Modal */}
-      {selectedCertificate &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-black/80 p-2 backdrop-blur-md sm:p-4"
-            onMouseDown={(event) => {
-              if (event.target === event.currentTarget) {
-                closeCertificate();
-              }
-            }}
-          >
-            <div
-              ref={dialogRef}
-              role="dialog"
-              aria-modal="true"
-              aria-labelledby="certificate-preview-title"
-              onKeyDown={handleDialogKeyDown}
-              className="my-auto flex max-h-[94dvh] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-line bg-background shadow-2xl sm:rounded-2xl"
+     
+{/* Responsive Certificate Modal */}
+{selectedCertificate &&
+  createPortal(
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-black/80 p-2 backdrop-blur-md sm:p-4"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) {
+          closeCertificate();
+        }
+      }}
+    >
+      <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="certificate-preview-title"
+        onKeyDown={handleDialogKeyDown}
+        className="my-auto flex h-[92dvh] h-[92svh] min-h-[320px] max-h-[900px] w-full max-w-5xl flex-col overflow-hidden rounded-xl border border-line bg-background shadow-2xl sm:rounded-2xl"
+      >
+        {/* Modal Header */}
+        <div className="flex shrink-0 items-start justify-between gap-3 border-b border-line px-3 py-3 sm:px-5 sm:py-4">
+          <div className="min-w-0">
+            <span className="eyebrow">
+              {t("Certificate Preview", "လက်မှတ် ကြည့်ရှုခြင်း")}
+            </span>
+
+            <h2
+              id="certificate-preview-title"
+              className="mt-1 break-words text-sm font-semibold text-foreground sm:text-base"
             >
-              {/* Modal Header */}
-              <div className="flex shrink-0 items-start justify-between gap-3 border-b border-line px-3 py-3 sm:px-5 sm:py-4">
-                <div className="min-w-0">
-                  <span className="eyebrow">
-                    {t("Certificate Preview", "လက်မှတ် ကြည့်ရှုခြင်း")}
-                  </span>
+              {selectedCertificate.label}
+            </h2>
+          </div>
 
-                  <h2
-                    id="certificate-preview-title"
-                    className="mt-1 break-words text-sm font-semibold text-foreground sm:text-base"
-                  >
-                    {selectedCertificate.label}
-                  </h2>
-                </div>
+          <button
+            ref={closeRef}
+            type="button"
+            onClick={closeCertificate}
+            className="icon-button shrink-0"
+            aria-label={t(
+              "Close certificate preview",
+              "လက်မှတ် ကြည့်ရှုမှုကို ပိတ်ရန်"
+            )}
+          >
+            <X className="h-4 w-4" aria-hidden="true" />
+          </button>
+        </div>
 
-                <button
-                  ref={closeRef}
-                  type="button"
-                  onClick={closeCertificate}
-                  className="icon-button shrink-0"
-                  aria-label={t(
-                    "Close certificate preview",
-                    "လက်မှတ် ကြည့်ရှုမှုကို ပိတ်ရန်"
-                  )}
-                >
-                  <X className="h-4 w-4" aria-hidden="true" />
-                </button>
-              </div>
+        {/* Image Preview */}
+        <div className="relative min-h-0 w-full flex-1 bg-black/5">
+          <Image
+            src={selectedCertificate.image}
+            alt={selectedCertificate.label}
+            fill
+            sizes="(max-width: 640px) 100vw, 1200px"
+            className="object-contain p-2 sm:p-4"
+            priority
+          />
+        </div>
 
-              {/* Image Preview */}
-              <div className="relative h-[58dvh] min-h-0 w-full flex-1 bg-black/5 sm:h-[68dvh] sm:min-h-[400px]">
-                <Image
-                  src={selectedCertificate.image}
-                  alt={selectedCertificate.label}
-                  fill
-                  sizes="(max-width: 640px) 100vw, 1200px"
-                  className="object-contain p-2 sm:p-4"
-                  priority
-                />
-              </div>
+        {/* Modal Footer */}
+        <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-t border-line px-3 py-3 sm:px-5">
+          <span className="mono min-w-0 break-words text-[9px] sm:text-[10px]">
+            {selectedCertificate.label}
+          </span>
 
-              {/* Modal Footer */}
-              <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-t border-line px-3 py-3 sm:px-5">
-                <span className="mono min-w-0 break-words text-[9px] sm:text-[10px]">
-                  {selectedCertificate.label}
-                </span>
+          <span className="mono shrink-0 text-[9px] text-foreground-subtle">
+            {t("CERTIFICATE", "လက်မှတ်")}
+          </span>
+        </div>
+      </div>
+    </div>,
+    document.body
+  )}
 
-                <span className="mono shrink-0 text-[9px] text-foreground-subtle">
-                  {t("CERTIFICATE", "လက်မှတ်")}
-                </span>
-              </div>
-            </div>
-          </div>,
-          document.body
-        )}
     </section>
   );
 }
